@@ -21,14 +21,21 @@ $ crontab -e
 ```
 Add the following lines to crontab.
 ```
-@reboot  /usr/bin/pigpiod
 @reboot  mkdir -p /home/pi/turtlescripts
 @reboot  cp /home/pi/turtle.py /home/pi/turtlescripts/turtle.py
 @reboot  (cd /home/pi; ./run.sh turtlescripts)
 @reboot  (cd /home/pi; ./save.sh turtlescripts)
 ```
-
 It is possible to overwrite turtle.py from the IDE, but the code in crontab will always restore the original version at reboot.
+
+We also need to run the pigpio daemon at startup, this time as root.
+```
+$ sudo crontab -e
+```
+Add the following line to crontab.
+```
+@reboot  /usr/bin/pigpiod
+```
 
 ## The Frontend
 The frontend is implemeted in HTML, CSS, PHP, Javascript and jQuery.
