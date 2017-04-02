@@ -2,7 +2,9 @@
 Web based IDE for editing and executing Python code on wifi connected Turtle robot.
 
 ## Introduction
-In the seventies, Seymour Papert invented LOGO as a teaching tool for computer programming, encouraging exploration and interactivity. The accompanying Turtle robot could draw sketches on paper, creating a tangible thing from the programming effort. Now, the concept has been recreated on a platform base on Raspberry Pi and Python. The code in this repository is what you need to add to a Raspbian installation to get a fully functional IDE with remote editing and code execution on the Turtle robot.
+In the seventies, Seymour Papert invented LOGO as a teaching tool for computer programming, encouraging exploration and interactivity. The accompanying Turtle robot could draw sketches on paper, creating a tangible thing from the programming effort. Now, the concept has been recreated on a platform base on Raspberry Pi and Python. Read more about the project at http://formallanguage.blogspot.se/2017/04/designing-turtle.html.
+
+The code in this repository is what you need in addition to a Raspbian installation to get a fully functional IDE with remote editing and code execution on the Turtle robot.
 
 ## The Backend
 The backend consists of two services that take care of execution and storage of programs.
