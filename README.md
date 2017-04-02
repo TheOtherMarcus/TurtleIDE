@@ -23,7 +23,6 @@ Add the following lines to crontab.
 ```
 @reboot  /usr/bin/pigpiod
 @reboot  mkdir -p /home/pi/turtlescripts
-@reboot  rm -f /home/pi/turtlescripts/turtle.py
 @reboot  cp /home/pi/turtle.py /home/pi/turtlescripts/turtle.py
 @reboot  (cd /home/pi; ./run.sh turtlescripts)
 @reboot  (cd /home/pi; ./save.sh turtlescripts)
