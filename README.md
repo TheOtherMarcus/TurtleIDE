@@ -15,6 +15,9 @@ turtle.py contains code to drive the stepper motors and the servo on the Turtle 
 
 To install the backend on the Raspberry Pi, copy all three files to /home/pi and make them executable.
 ```
+$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/run.sh
+$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/save.sh
+$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/turtle.py
 $ chmod +x run.sh
 $ chmod +x save.sh
 $ crontab -e
@@ -92,8 +95,13 @@ $ sudo mv index.html index.debian
 $ sudo ln -s /home/pi/turtlescripts .
 $ sudo wget https://code.jquery.com/jquery-3.2.0.min.js
 ```
-
-Finally, copy all files in the frontend directory to /var/www/html. You may need to use sudo as it is root that owns the directory.
+Finally, copy all files in the frontend directory to /var/www/html.
+```
+$ cd /var/www/html
+$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/index.php
+$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/script.js
+$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/style.css
+```
 
 ## Running the IDE
 You are now all set to run the IDE. Reboot the Raspberry Pi, figure out which IP address it was assigned and open the URL http://{IP}/ in a browser. Happy Turtling!
