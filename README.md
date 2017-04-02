@@ -13,13 +13,14 @@ The script save.sh writes Python programs to disk. It listens on http://localhos
 
 turtle.py contains code to drive the stepper motors and the servo on the Turtle robot. It uses pigpio for GPIO and servo control.
 
-To install the backend on the Raspberry Pi, copy all three files to /home/pi and make them executable. Then add the following lines to crontab.
-
+To install the backend on the Raspberry Pi, copy all three files to /home/pi and make them executable.
 ```
 $ chmod +x run.sh
 $ chmod +x save.sh
 $ crontab -e
-
+```
+Add the following lines to crontab.
+```
 @reboot  /usr/bin/pigpiod
 @reboot  mkdir -p /home/pi/turtlescripts
 @reboot  rm -f /home/pi/turtlescripts/turtle.py
