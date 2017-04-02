@@ -29,11 +29,21 @@
       <td>
         <nav>
 	  <ul id="portfolio">
-	    <li><a href="#" onclick="javascript:load('kvadrat.py')">kvadrat.py</a></li><li><a href="#" onclick="javascript:load('turtle.py')">turtle.py</a></li>	  </ul>
+	    <?php
+	       $files = scandir('/var/www/html/turtlescripts');
+	       sort($files);
+	       foreach ($files as $file) { if (preg_match('/^[^0-9].*.py$/', $file)) { print("<li><a href=\"#\" onclick=\"javascript:load('$file')\">$file</a></li>"); } }
+	    ?>
+	  </ul>
 	</nav>
         <nav>
 	  <ul id="history">
-	    <li><a href="#" onclick="javascript:load('302.py')">302.py</a></li><li><a href="#" onclick="javascript:load('301.py')">301.py</a></li><li><a href="#" onclick="javascript:load('300.py')">300.py</a></li><li><a href="#" onclick="javascript:load('299.py')">299.py</a></li><li><a href="#" onclick="javascript:load('298.py')">298.py</a></li><li><a href="#" onclick="javascript:load('297.py')">297.py</a></li><li><a href="#" onclick="javascript:load('296.py')">296.py</a></li><li><a href="#" onclick="javascript:load('295.py')">295.py</a></li><li><a href="#" onclick="javascript:load('294.py')">294.py</a></li><li><a href="#" onclick="javascript:load('0.py')">0.py</a></li>	  </ul>
+	    <?php
+	       $files = scandir('/var/www/html/turtlescripts');
+	       rsort($files, SORT_NUMERIC);
+	       foreach ($files as $file) { if (preg_match('/^[0-9]+.py$/', $file)) { print("<li><a href=\"#\" onclick=\"javascript:load('$file')\">$file</a></li>"); } }
+	    ?>
+	  </ul>
 	</nav>
       </td>
       
