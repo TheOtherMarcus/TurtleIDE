@@ -11,8 +11,7 @@ function run(d) {
     })
 	.done(function(data, textStatus, jqXHR) {
 	    out = data.split('\n')[0]
-	    $('#resultfile').text(out + ":");
-	    startReloader("turtlescripts/" + out);
+	    startReloader(out);
 	    name = out.replace(/\.out$/, "") + ".py";
 	    $('#history').prepend("<li><a href=\"#\" onclick=\"javascript:load('" + name + "')\">" + name + "</a></li>");
 	})
@@ -44,9 +43,10 @@ function save(d, name) {
 
 var reloader;
 
-function startReloader(url) {
+function startReloader(out) {
+    $('#resultfile').text(out + ":");
     reloader = setInterval(function () {
-	$.get(url, null, function (data) {
+	$.get("turtlescripts/" + out, null, function (data) {
 	    $('#result').val(data);
 	}, "text");
     }, 1000);
@@ -57,7 +57,12 @@ function stopReloader() {
 }
 
 function load(file) {
+    stopReloader();
+    $('#code').val("");
+    $('#result').val("");
     $.get("turtlescripts/" + file, null, function (data) {
 	$('#code').val(data);
     }, "text");
+    out = file.replace(/\.py$/, ".out");
+    startReloader(out);
 }
