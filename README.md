@@ -17,11 +17,10 @@ turtle.py contains code to drive the stepper motors and the servo on the Turtle 
 
 To install the backend on the Raspberry Pi, copy all three files to /home/pi and make them executable.
 ```
-sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/run.sh
-sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/save.sh
-sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/turtle.py
-chmod +x run.sh
-chmod +x save.sh
+wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/run.sh
+wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/save.sh
+wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/turtle.py
+chmod +x run.sh save.sh
 crontab -e
 ```
 Add the following lines to crontab.
