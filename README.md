@@ -17,12 +17,12 @@ turtle.py contains code to drive the stepper motors and the servo on the Turtle 
 
 To install the backend on the Raspberry Pi, copy all three files to /home/pi and make them executable.
 ```
-$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/run.sh
-$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/save.sh
-$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/turtle.py
-$ chmod +x run.sh
-$ chmod +x save.sh
-$ crontab -e
+sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/run.sh
+sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/save.sh
+sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/backend/turtle.py
+chmod +x run.sh
+chmod +x save.sh
+crontab -e
 ```
 Add the following lines to crontab.
 ```
@@ -35,7 +35,7 @@ It is possible to overwrite turtle.py from the IDE, but the code in crontab will
 
 We also need to run the pigpio daemon at startup, this time as root.
 ```
-$ sudo crontab -e
+sudo crontab -e
 ```
 Add the following line to crontab.
 ```
@@ -48,9 +48,9 @@ The frontend is implemeted in HTML, CSS, PHP, Javascript and jQuery.
 First you need to install and configure the Apache web server. Run the following commands on the Raspberry Pi.
 
 ```
-$ sudo apt-get install apache2 php5 libapache2-mod-php5
-$ sudo a2enmod proxy_http
-$ sudo nano /etc/apache2/sites-enabled/000-default.conf
+sudo apt-get install apache2 php5 libapache2-mod-php5
+sudo a2enmod proxy_http
+sudo nano /etc/apache2/sites-enabled/000-default.conf
 ```
 The file 000-default.conf should look something like this. Two proxy lines have been added at the end.
 ```
@@ -91,18 +91,18 @@ The file 000-default.conf should look something like this. Two proxy lines have 
 ```
 Continue with the configuration.
 ```
-$ sudo service apache2 restart
-$ cd /var/www/html
-$ sudo mv index.html index.debian
-$ sudo ln -s /home/pi/turtlescripts .
-$ sudo wget https://code.jquery.com/jquery-3.2.0.min.js
+sudo service apache2 restart
+cd /var/www/html
+sudo mv index.html index.debian
+sudo ln -s /home/pi/turtlescripts .
+sudo wget https://code.jquery.com/jquery-3.2.0.min.js
 ```
 Finally, copy all files in the frontend directory to /var/www/html.
 ```
-$ cd /var/www/html
-$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/index.php
-$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/script.js
-$ sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/style.css
+cd /var/www/html
+sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/index.php
+sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/script.js
+sudo wget https://raw.githubusercontent.com/TheOtherMarcus/TurtleIDE/master/frontend/style.css
 ```
 
 ## Running the IDE
